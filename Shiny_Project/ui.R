@@ -9,7 +9,7 @@ library(shiny)
 shinyUI(fluidPage( #create the overall page
   
   # Application title
-  titlePanel("Iris Data"),
+  titlePanel("Rice Data"),
   
   # Some helpful information
   helpText("This application creates a boxplot to show difference between",
@@ -25,11 +25,14 @@ shinyUI(fluidPage( #create the overall page
                      "E Asia",
                      "S Asia",
                      "Pacific", "Mid East", "America", "SE Asia",
-                     "Africa", "C Asia")
+                     "Africa", "C Asia")),
+      radioButtons("pheno1", c("Blast Resistance")), 
+      radioButtons("pheno2", c("Seed length"))
+          
       )),
     
     # Show a plot of the generated distribution
-    mainPanel(plotOutput("boxPlot")
+    mainPanel(plotOutput("plottedData")
     )
   )
-))
+)
