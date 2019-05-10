@@ -17,9 +17,9 @@ shinyServer(function(input, output) {
   output$plottedData <- renderPlot({ # main graph output == plottedData
     pheno.data.filtered <- data.pheno.mds %>% filter(Region == input$region)
     pheno.plot <- ggplot(data = pheno.data.filtered, 
-                         aes(
-                           x = `Seed length`, # First phenotype selected
-                           y = `Seed width` # Second phenotype selected
+                         aes_string(
+                           x = input$pheno1, # First phenotype selected
+                           y = input$pheno2 # Second phenotype selected
         )
       )
     pheno.plot + geom_point()

@@ -28,10 +28,12 @@ shinyUI(fluidPage( #create the overall page
                      "Africa", "C Asia")),
       radioButtons("pheno1",
                    "Choice 1",
-                   c("Blast Resistance")), 
+                   c("Seed_length",
+                     "Seed_width")), 
       radioButtons("pheno2",
                    "Choice 2",
-                   c("Seed length"))
+                   c("Seed_volume",
+                     "Seed_surface_area"))
           
       ),
     
