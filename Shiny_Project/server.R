@@ -18,11 +18,11 @@ shinyServer(function(input, output) {
     pheno.data.filtered <- filter(data.pheno.mds, 'Region' == input$regions)
     pheno.plot <- ggplot(data = pheno.data.filtered, 
                          aes_string(
-                           x = input$pheno1, # First phenotype selected
-                           y = input$pheno2 # Second phenotype selected
+                           x = `Seed length`, # First phenotype selected
+                           y = `Seed width` # Second phenotype selected
         )
       )
-    pheno.plot <- pheno.plot + geom_boxplot()
+    pheno.plot + geom_point()
   })
   
 })
