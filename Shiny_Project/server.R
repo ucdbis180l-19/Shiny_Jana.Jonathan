@@ -9,24 +9,20 @@ library(shiny)
 library(ggplot2)
 library(tidyverse)
 
-data.pheno.mds <- read_csv("~/Shiny_Jana.Jonathan/Shiny_Project/data.pheno.mds.csv", col_names = TRUE)
+data.pheno.mds <- read_csv("data.pheno.mds.csv", col_names = TRUE)
 
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-  output$plottedData <- renderPlot({ # main graph output == plottedData
-    pheno.plot <- data.pheno.mds %>%
-      if(input$region != "All") { # checks for region specificity
-        filter(Region == input$region) # filters data by region input
-        } %>%
-      ggplot(
-        aes_string(
-          x = input$pheno1, # First phenotype selected
-          y = input$pheno2, # Second phenotype selected
-          fill = Region # region = fill color
+  output$mainGraph <- renderPlot({ # main graph output == plottedData
+    pheno.data.filtered <- filter(data.pheno.mds, 'Region' == input$regions)
+    pheno.plot <- ggplot(data = pheno.data.filtered, 
+                         aes_string(
+                           x = input$pheno1, # First phenotype selected
+                           y = input$pheno2 # Second phenotype selected
         )
       )
-    pheno.plot <- pheno.plot + geom_dotplot()
+    pheno.plot <- pheno.plot + geom_boxplot()
   })
   
 })
