@@ -26,13 +26,17 @@ shinyUI(fluidPage( #create the overall page
                      "S Asia",
                      "Pacific", "Mid East", "America", "SE Asia",
                      "Africa", "C Asia")),
-      radioButtons("pheno1", c("Blast Resistance")), 
-      radioButtons("pheno2", c("Seed length"))
+      radioButtons("pheno1",
+                   "Choice 1",
+                   c("Blast Resistance")), 
+      radioButtons("pheno2",
+                   "Choice 2",
+                   c("Seed length"))
           
-      )),
+      ),
     
     # Show a plot of the generated distribution
     mainPanel(plotOutput("plottedData")
     )
   )
-)
+))

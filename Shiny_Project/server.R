@@ -14,8 +14,8 @@ data.pheno.mds <- read_csv("data.pheno.mds.csv", col_names = TRUE)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-  output$mainGraph <- renderPlot({ # main graph output == plottedData
-    pheno.data.filtered <- data.pheno.mds %>% filter(Region == input$regions)
+  output$plottedData <- renderPlot({ # main graph output == plottedData
+    pheno.data.filtered <- data.pheno.mds %>% filter(Region == input$region)
     pheno.plot <- ggplot(data = pheno.data.filtered, 
                          aes(
                            x = `Seed length`, # First phenotype selected
