@@ -13,9 +13,9 @@ shinyUI(fluidPage( #create the overall page
   titlePanel("Rice Data"),
   
   # Some helpful information
-  helpText(h3("This application creates a scatter plot to show the variation and dependence between three 
-           characteristics of the Rice data. Using this Shiny app, you can manipulate and 
-           observe the dynamic relationship of some of the characteristics of the Rice plants based on 
+  helpText(h3("This application creates a scatter plot to show the variation and dependence between four 
+           features of the Rice data. Using this Shiny app, you can manipulate and 
+           observe the dynamic relationship of some of the features of the Rice plants based on 
            region.")),
   
   # Sidebar with a radio box to input which trait will be plotted
