@@ -1,10 +1,11 @@
+
 # server.R
 # Shiny Web Project
 # BIS 180L
 # Jana and Jonathan
 # Thing's we can compare x = ancesteral 
 
-
+library(rsconnect)
 library(shiny)
 library(ggplot2)
 library(tidyverse)
